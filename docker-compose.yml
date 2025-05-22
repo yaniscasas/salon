@@ -1,0 +1,39 @@
+# Docker Compose for Salon de Belleza App
+
+version: '3.8'
+
+services:
+  mongo:
+    image: mongo:6.0
+    container_name: salon-mongo
+    restart: always
+    ports:
+      - "27017:27017"
+    volumes:
+      - mongo-data:/data/db
+
+  backend:
+    build: ./backend
+    container_name: salon-backend
+    restart: always
+    ports:
+      - "3333:3333"
+    environment:
+      - MONGO_URI=mongodb://mongo:27017/salon
+      - JWT_SECRET=supersecret
+      - NODE_ENV=production
+      - PORT=3333
+    depends_on:
+      - mongo
+
+  frontend:
+    build: ./frontend
+    container_name: salon-frontend
+    restart: always
+    ports:
+      - "3434:80"
+    depends_on:
+      - backend
+
+volumes:
+  mongo-data:

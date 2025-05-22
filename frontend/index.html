@@ -1,0 +1,93 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Salón de Belleza - Citas</title>
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+  <div class="container">
+    <!-- Contenedor de Citas (visible siempre) -->
+    <div id="citas-container" class="form-container">
+      <h2 id="bienvenida-usuario">Agenda tu cita</h2>
+      <h3>Agendar Nueva Cita</h3>
+      <form id="cita-form">
+        <div class="form-group">
+          <label for="servicio">Servicio:</label>
+          <select id="servicio" required>
+            <option value="">Seleccione un servicio</option>
+            <option value="Corte de cabello">Corte de cabello</option>
+            <option value="Coloración">Coloración</option>
+            <option value="Manicura">Manicura</option>
+            <option value="Pedicura">Pedicura</option>
+            <option value="Maquillaje">Maquillaje</option>
+            <option value="Tratamiento facial">Tratamiento facial</option>
+          </select>
+        </div>
+        <div class="form-group">
+          <label for="fecha">Fecha:</label>
+          <input type="date" id="fecha" required>
+        </div>
+        <div class="form-group">
+          <label for="hora">Hora:</label>
+          <input type="time" id="hora" required>
+        </div>
+        <div class="form-group">
+          <label for="telefono">Teléfono:</label>
+          <input type="tel" id="telefono" placeholder="telefono" required>
+        </div>
+        <div class="form-group">
+          <label for="notas">Notas:</label>
+          <textarea id="notas" rows="3" placeholder="Algo que debamos saber..."></textarea>
+        </div>
+        <button type="submit" class="btn-primary" id="btn-cita">AGENDAR</button>
+        <p id="cita-message"></p>
+      </form>
+      <h3>Mis Citas</h3>
+      <div id="lista-citas"></div>
+    </div>
+
+    <!-- Modal para Editar Cita -->
+    <div id="modal-editar" class="modal" style="display:none;">
+      <div class="modal-content">
+        <span class="close-modal" id="cerrar-modal">&times;</span>
+        <h3>Editar Cita</h3>
+        <form id="form-editar-cita">
+          <div class="form-group">
+            <label for="editar-servicio">Servicio:</label>
+            <select id="editar-servicio" required>
+              <option value="">Seleccione un servicio</option>
+              <option value="Corte de cabello">Corte de cabello</option>
+              <option value="Coloración">Coloración</option>
+              <option value="Manicura">Manicura</option>
+              <option value="Pedicura">Pedicura</option>
+              <option value="Maquillaje">Maquillaje</option>
+              <option value="Tratamiento facial">Tratamiento facial</option>
+            </select>
+          </div>
+          <div class="form-group">
+            <label for="editar-fecha">Fecha:</label>
+            <input type="date" id="editar-fecha" required>
+          </div>
+          <div class="form-group">
+            <label for="editar-hora">Hora:</label>
+            <input type="time" id="editar-hora" required>
+          </div>
+          <div class="form-group">
+            <label for="editar-telefono">Teléfono:</label>
+            <input type="tel" id="editar-telefono" required>
+          </div>
+          <div class="form-group">
+            <label for="editar-notas">Notas:</label>
+            <textarea id="editar-notas" rows="3"></textarea>
+          </div>
+          <button type="submit" class="btn-primary">GUARDAR CAMBIOS</button>
+          <p id="editar-cita-message"></p>
+        </form>
+      </div>
+    </div>
+  </div>
+  <script src="script.js"></script>
+</body>
+</html>
