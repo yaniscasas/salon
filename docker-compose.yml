@@ -31,7 +31,7 @@ services:
     container_name: salon-frontend
     restart: always
     ports:
-      - "4500:4500"
+      - "4500:80"
     depends_on:
       - backend
 
